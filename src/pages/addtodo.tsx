@@ -11,17 +11,15 @@ export default function AddTodo() {
   const addTodo = async (e) => {
     e.preventDefault();
     let data = {
-      title,
-      body,
-      user_id: 1,
-      message_detail: {
-        detail
-      }
+      username: title,
+      password: body
     }
     try {
-      const response = await axios.post('http://localhost:8080/api/message', data);
+      const response = await axios.post('http://localhost:8000/api/login', data, {
+        withCredentials: true
+      });
       console.log('Data submitted:', response.data);
-      nav("/")
+      // nav("/")
     } catch (error) {
       console.error('Error submitting data:', error);
     }

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Home() {
-  const [todos, setTodos] = React.useState([]);
+  const [todos, setTodos] = useState([]);
   const nav = useNavigate();
 
   const fetchTodos = async () => {
@@ -17,6 +17,7 @@ export default function Home() {
   };
 
   React.useEffect(() => {
+
     fetchTodos();
   }, []);
 
